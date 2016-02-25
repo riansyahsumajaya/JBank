@@ -15,24 +15,27 @@ public class Account
     }
     public char getAcctType() 
     {
-        return '\0';
+        return acctType;
     }
-    private double getBalance() 
+    public double getBalance() 
     {
-        return 0;
+        return balance;
     }
     public String getId() 
     {
-        return "";
+        return "id";
     }
-    private void setBalance(double amount) 
+    public void setBalance(double amount) 
     {
+        balance = amount;
     }
     public void setID(String acctId) 
     {
+        id = acctId;
     }
-    public void setAcctType() 
+    public void setacctType(char type) 
     {
+        acctType = type;
     }
     private void withdraw(double amount) 
     {

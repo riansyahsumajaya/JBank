@@ -7,7 +7,7 @@
  */
 public class Customer
 {
-    private String cityAddress,dateOfBirth,email,firstName,lastName,streetAddress,phoneNumber,zipOrPostalCode;
+    private String cityName,dateOfBirth,email,firstName,lastName,streetAddress,phoneNumber,zipOrPostalCode;
     private int custId,numberOfCurrentAccounts;
     private Account accounts = new Account();
     public Customer()
@@ -19,48 +19,55 @@ public class Customer
     public Customer(String firstName, String lastName, String dateOfBirth, int custId)
     {
     }
-    private String getAddress() 
+    public String getAddress() 
     {
-        return "";
+        return streetAddress + "," + cityName + "," + zipOrPostalCode;
     }
     public Account getAccount() 
     {
         return accounts;
     }
-    private int getCustomerId() 
+    public int getCustomerId() 
     {
-        return 0;
+        return custId;
     }
-    private String getEmail() 
+    public String getEmail() 
     {
-        return "";
+        return email;
     }
-    private String getCustomerName() 
+    public String getName() 
     {
-        return "";
+        return lastName + "," + firstName;
     }
     public int getNumOfAccounts() 
     {
-        return 0;
+        return numberOfCurrentAccounts;
     }
-    private String getPhoneNumber() 
+    public String getPhoneNumber() 
     {
-        return "";
+        return phoneNumber;
     }
-    private void setAddress(String street, String city, String code) 
+    public void setAddress(String street, String city, String code) 
     {
-        return;
+        streetAddress = street; 
+        cityName = city;
+        zipOrPostalCode = code;
     }
-    private void setEmail(String emailAddress) 
+    public void setEmail(String emailAddress) 
     {
-        return;
+        email = emailAddress;
     }
-    private void setCustomerName(String lname, String cfname) 
+    public void setName(String lname, String cfname) 
     {
-        return;
+        lastName = lname;
+        firstName = cfname;
     }
-    private void setPhoneNumber(String phoneNum) 
+    public void setPhoneNumber(String phoneNum) 
     {
-        return;
+        phoneNumber = phoneNum;
+    }
+    public void setAccount(Account accounts) 
+    {
+        this.accounts = accounts;
     }
 }
