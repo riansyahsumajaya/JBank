@@ -1,3 +1,9 @@
+/**
+ * source code for course object-oriented programming
+ * this code refer to  JBank phase 1 table(UML)
+ * @author (Riansyah Sumajaya/1306447436) 
+ * @version (27-02-2016)
+ */
 public class Account
 {
     private char acctType;
