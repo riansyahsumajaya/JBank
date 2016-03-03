@@ -28,8 +28,9 @@ public class Customer
     * @param firstname untuk nama depan customer    
     * @param lastname untuk nama akhir customer
     */ 
-    public Customer(String fname, String lname, String dob) 
+    public Customer(String fname, String lname) 
     {
+        this(fname,lname,null);
     }
     /**
     * Constructor method for Customer
@@ -38,8 +39,12 @@ public class Customer
     * @param dateofbirth untuk tanggal lahir customer    
     * @param custId untuk ID Customer
     */
-    public Customer(String firstName, String lastName, String dateOfBirth, int custId)
+    public Customer(String firstName, String lastName, String dateOfBirth)
     {
+        this.firstName=firstName;
+        this.lastName=lastName;
+        this.dateOfBirth=dateOfBirth;
+        custId=Bank.nextCustID;
     }
     /**
     * Accessor Method for getAddress
@@ -153,4 +158,4 @@ public class Customer
             return false;
         }
     }
-}
+ }
