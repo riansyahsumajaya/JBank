@@ -158,4 +158,13 @@ public class Customer
             return false;
         }
     }
+    public String toString() 
+    {
+        System.out.println("Customer ID   :   " + custId);
+        System.out.println("First Name    :   " + firstName);
+        System.out.println("Last Name     :   " + lastName);
+        System.out.println("dob           :   " + dateOfBirth);
+        System.out.println("Phone         :   " + phoneNumber);
+        return "";        
+    }
  }

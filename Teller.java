@@ -1,3 +1,4 @@
+import java.util.Scanner;
 /**
  * source code for course object-oriented programming
  * this code refer to  JBank phase 1 table(UML)
@@ -20,13 +21,83 @@ public class Teller
      */
     public static void main(String[] args) 
     {
+      int balance;
+      char acctType;
+      String input = "",fname,lname,dob,phone;
+      Scanner sc = new Scanner(System.in);
+      Customer customers;
+      do {
+          System.out.println("New Costumer? (Y/N)");
+          input = sc.next();
+        if ( input.equals("Y")) 
+        {
+            acctType = '\0';
+            System.out.print("First Name: ");
+            input = sc.next();
+            fname = input;
+            System.out.print("Last Name: ");
+            input = sc.next();
+            lname = input;
+            System.out.print("Date of Birth (ex: 04/03/1996): ");
+            input = sc.next();
+            dob = input;
+            System.out.print("Telephone: ");
+            input = sc.next();
+            phone = input;   
+            customers = new Customer(fname,lname,dob);
+            customers.setPhoneNumber(phone);               
+            System.out.println("S: Savings; O: Overdraft; I:Investment; L: Credit Checking; NC: Not Created ");
+            System.out.print("Account Type (S/O/I/L/NC): ");
+            input = sc.next();
+              if (input.equals("NC")) 
+              {                 
+              } 
+              else 
+              {
+                  acctType = input.charAt(0);
+                  do 
+                  {
+                    System.out.print("New Balance: ");
+                    input = sc.next();
+                    balance = Integer.parseInt(input);
+                    if (balance<=0) 
+                    {
+                        System.out.println("Wrong Input");
+                    } else 
+                    {
+                        break;
+                    }
+                  } 
+                  while(true);
+                  if (customers != null) 
+                  {
+                  customers.setAccount(new Account(acctType,balance));
+                  customers.getAccount().setID(String.valueOf(customers.getCustomerId() ) + acctType);
+                  }
+              }
+              System.out.println("Customer Information");
+              System.out.println(customers);
+            if (acctType != '\0')
+            System.out.print(customers.getAccount());
+            } 
+            else if (input.equals("N")) 
+            {
+             System.out.println("Thank you and see you again!"); 
+             break;
+            } else {
+            System.out.println("Use only Y or N \n");
+        }
+      } 
+      while(true);
     }
+
     public Teller()
     /**
     * Teller sebagai Method bertipe Constructor
     */
     {
-        c1.setName("Sutandi","Sanadhi"); //task 2c number 2
+        /*
+       c1.setName("Sutandi","Sanadhi"); //task 2c number 2
         a1.setBalance(50000); //task 2c number 5
         c1.setAccount(a1); //task 2c number 6
         acct=c1.getAccount();
@@ -34,6 +105,6 @@ public class Teller
         namapanjang=c1.getName();
         System.out.println(namapanjang); //task 2c number 3
         System.out.println(saldo); //task 2c number 7
+        */
     }
-
 }

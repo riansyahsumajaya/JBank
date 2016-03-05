@@ -112,4 +112,12 @@ public class Account
             return true;
         }  
     }
+    public String toString()
+    {
+        System.out.println("Id      :   " + id);
+        System.out.println("Tipe    :   " + acctType);
+        System.out.println("Saldo   :   " + balance);
+        return "";        
+    }
+        
 }
