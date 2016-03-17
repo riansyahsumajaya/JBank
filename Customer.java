@@ -1,16 +1,19 @@
-import java.util.regex.*; // import function for REGEX
+import java.util.regex.Matcher;
+import java.util.regex.Pattern; // import function for REGEX
+import java.util.Date;
 /**
  * Source code for course Object-oriented Programming
  * this code refer to  JBank phase 1 table(UML)
  * @author (Riansyah Sumajaya/1306447436) 
- * @version (27-02-2016)
+ * @version (10-03-2016)
  */
 public class Customer
 /**
  * Fungsi Class Customer : konfigurasi data Customer contohnya nama,alamat, dan nomor telepon.
  */
 {
-    private String cityName,dateOfBirth,email,firstName,lastName,streetAddress,phoneNumber,zipOrPostalCode;
+    public String cityName,email,firstName,lastName,streetAddress,phoneNumber,zipOrPostalCode;
+    private Date dateOfBirth;
     private int custId,numberOfCurrentAccounts;
     private Account accounts = new Account();
     private Matcher matcher;
@@ -25,7 +28,7 @@ public class Customer
     }
     /**
     * Constructor method for Customer
-    * @param firstname untuk nama depan customer    
+    * @param fname firstname untuk nama depan customer    
     * @param lastname untuk nama akhir customer
     */ 
     public Customer(String fname, String lname) 
@@ -39,7 +42,7 @@ public class Customer
     * @param dateofbirth untuk tanggal lahir customer    
     * @param custId untuk ID Customer
     */
-    public Customer(String firstName, String lastName, String dateOfBirth)
+    public Customer(String firstName, String lastName, Date dateOfBirth)
     {
         this.firstName=firstName;
         this.lastName=lastName;
@@ -78,6 +81,7 @@ public class Customer
     {
         return email; // mengembalikan nilai ke var disamping
     }
+
     /**
     * Accessor Method for getCustomerName
     * @return nama awal dan nama akhir dari data Customer yang telah di setting
@@ -102,6 +106,10 @@ public class Customer
     {
         return phoneNumber; // mengembalikan nilai ke var disamping
     }
+    public Date getDateOfBirth()
+    {
+        return dateOfBirth;
+    }
     /**
     * Mutator Method untuk setAddress , Method yang melakukan setting data alamat customer
     * @param street jalan data alamat customer
@@ -119,10 +127,10 @@ public class Customer
     * @param lname nama akhir customer
     * @param fname nama depan customer
     */
-    public void setName(String lname, String cfname)
+    public void setName(String lname, String fname)
     {
         lastName = lname; // melakukan setting nilai ke var yang tertulis dikolom ini
-        firstName = cfname;
+        firstName = fname;
     }
     /**
     * Mutator Method untuk setPhoneNumber , Method yang melakukan setting data nomor telepon Customer

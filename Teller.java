@@ -1,4 +1,10 @@
+import java.util.Date;
+import java.util.Locale;
+import java.util.GregorianCalendar;
 import java.util.Scanner;
+import java.text.SimpleDateFormat;
+import java.math.*;
+import java.sql.Time;
 /**
  * source code for course object-oriented programming
  * this code refer to  JBank phase 1 table(UML)
@@ -21,11 +27,13 @@ public class Teller
      */
     public static void main(String[] args) 
     {
-      int balance;
+      int balance,year,month,day;
       char acctType;
-      String input = "",fname,lname,dob,phone;
+      String input = "",fname,lname,phone;
+      String input1 = "yyyy-MM-dd",Date;
       Scanner sc = new Scanner(System.in);
       Customer customers;
+      
       do {
           System.out.println("New Costumer? (Y/N)");
           input = sc.next();
@@ -38,13 +46,15 @@ public class Teller
             System.out.print("Last Name: ");
             input = sc.next();
             lname = input;
-            System.out.print("Date of Birth (ex: 04/03/1996): ");
-            input = sc.next();
-            dob = input;
+            System.out.print("Date of Birth (ex: 1996-03-04): ");
+            year = sc.nextInt();
+            month = sc.nextInt();
+            day = sc.nextInt();
+            Date = input1;
             System.out.print("Telephone: ");
             input = sc.next();
             phone = input;   
-            customers = new Customer(fname,lname,dob);
+            customers = new Customer(fname,lname,(new GregorianCalendar(year,month,day).getTime()));
             customers.setPhoneNumber(phone);               
             System.out.println("S: Savings; O: Overdraft; I:Investment; L: Credit Checking; NC: Not Created ");
             System.out.print("Account Type (S/O/I/L/NC): ");
@@ -90,7 +100,6 @@ public class Teller
       } 
       while(true);
     }
-
     public Teller()
     /**
     * Teller sebagai Method bertipe Constructor

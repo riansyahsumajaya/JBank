@@ -1,3 +1,9 @@
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
+import java.sql.Time;
+import java.util.Date;
+import java.util.Locale;
+import java.math.*;
 /**
  * source code for course object-oriented programming
  * this code refer to  JBank phase 1 table(UML)
@@ -10,11 +16,10 @@ public class Bank
  */
 {
     private static double creditInterestRate, investmentInterestRate,premiumInterestRate;
-    public static int lastCustID, nextCustID, numOfCurrentCustomer;
-    public static int maxNumOfCustomers = 20;
-    private static String closeTime, phone, startTime;
+    public static int numOfCurrentCustomer = 1000, maxNumOfCustomers = 1020, nextCustID = 1001, lastCustID = 1000;
+    private static Date closeTime, startTime, hoursOfOperation;
     public static final String bankName= "JBANK", bankAddress = "1234 JavaStreet, AnyCity, ThisState, 34567";
-    public static String website;
+    public static String website, phone;
     /**
     * Constructor Method for Bank
     */
@@ -36,7 +41,7 @@ public class Bank
     */
     public static double getCreditRate() 
     {
-        return 0; //untuk mengembalikan nilai ke value 0
+        return creditInterestRate; //untuk mengembalikan nilai ke value 0
     }
     /**
     * Accessor Method for getInvestmentRate
@@ -44,7 +49,7 @@ public class Bank
     */
     public static double getInvestmentRate() 
     {
-        return 0; //untuk mengembalikan nilai ke value 0
+        return investmentInterestRate; //untuk mengembalikan nilai ke value 0
     }
     /**
     * Accessor Method for getHoursOfOperation
@@ -52,7 +57,9 @@ public class Bank
     */
     public static String getHoursOfOperation() 
     {
-        return ""; //untuk mengembalikan nilai ke value null
+        SimpleDateFormat form = new SimpleDateFormat("dd/MM/yyyy");
+        String hoursOfOperationFormat = form.format(hoursOfOperation);
+        return hoursOfOperationFormat; //untuk mengembalikan nilai ke hoursofoperation
     }
     /**
     * Accessor Method for getLastID
@@ -60,7 +67,7 @@ public class Bank
     */
     public static int getLastID() 
     {
-        return 0; //untuk mengembalikan nilai ke value 0
+        return lastCustID; //untuk mengembalikan nilai ke value 0
     }
     /**
     * Accessor Method for getMaxCustomers
@@ -123,7 +130,7 @@ public class Bank
     */
     public static double getPremiumRate() 
     {
-        return 0; //untuk mengembalikan nilai ke value 0
+        return premiumInterestRate; //untuk mengembalikan nilai ke value 0
     }
     /**
     * Accessor Method for getPhone
@@ -131,7 +138,7 @@ public class Bank
     */
     public static String getPhone() 
     {
-        return ""; //untuk mengembalikan nilai ke value null
+        return phone; //untuk mengembalikan nilai ke value null
     }
     /**
      * Accessor Method for getNumOfCurrentCustomers
@@ -146,6 +153,7 @@ public class Bank
      */
     public static void setCreditRate(double rate) 
     {
+        creditInterestRate = rate;
     }
     /**
      * Mutator Method for setInvestmentRate
@@ -153,6 +161,7 @@ public class Bank
      */
     public static void setInvestmentRate(double rate) 
     {
+        investmentInterestRate = rate;
     }
     /**
      * Mutator Method for setPremium
@@ -160,5 +169,22 @@ public class Bank
      */
     public static void setPremium(double rate) 
     {
+        premiumInterestRate = rate;
+    }
+    public static Date getStartTime()
+    {
+       return startTime; 
+    }
+    public static Date getCloseTime()
+    {
+       return closeTime;
+    }
+    public static void setStartTime(Time newStartTime)
+    {
+        startTime = newStartTime;
+    }
+    public static void setCloseTime(Time newCloseTime)
+    {
+        closeTime = newCloseTime;
     }
 }
