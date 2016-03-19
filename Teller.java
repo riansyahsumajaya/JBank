@@ -25,7 +25,11 @@ public class Teller
      /** 
      * @param args Arguments
      */
-    public static void main(String[] args) 
+    public static void main(String[] args)
+    {
+        Bank.getHoursOfOperation();
+    }
+     /*public static void main(String[] args) 
     {
       int balance,year,month,day;
       char acctType;
@@ -99,7 +103,7 @@ public class Teller
         }
       } 
       while(true);
-    }
+    } */
     public Teller()
     /**
     * Teller sebagai Method bertipe Constructor

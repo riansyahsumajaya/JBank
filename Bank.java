@@ -3,6 +3,7 @@ import java.text.ParseException;
 import java.sql.Time;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Scanner;
 import java.math.*;
 /**
  * source code for course object-oriented programming
@@ -16,10 +17,19 @@ public class Bank
  */
 {
     private static double creditInterestRate, investmentInterestRate,premiumInterestRate;
-    public static int numOfCurrentCustomer = 1000, maxNumOfCustomers = 1020, nextCustID = 1001, lastCustID = 1000;
+    public static int numOfCurrentCustomer = 0, nextCustID = 0, lastCustID, nextID;
+    public static int maxNumOfCustomers, maxCustAcct=4;
     private static Date closeTime, startTime, hoursOfOperation;
     public static final String bankName= "JBANK", bankAddress = "1234 JavaStreet, AnyCity, ThisState, 34567";
     public static String website, phone;
+    private static Customer[] Customers = new Customer[maxNumOfCustomers];
+    static {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("\nInput Max Customer: ");
+        int cs= sc.nextInt();
+        maxNumOfCustomers = cs;
+           }
+
     /**
     * Constructor Method for Bank
     */
@@ -35,6 +45,7 @@ public class Bank
         return ""; //untuk mengembalikan nilai ke value null
     }
     */
+   
     /**
     * Accessor Method for getCredit
     * @return kembali ke nilai "0"
@@ -146,7 +157,37 @@ public class Bank
      */
     public static int getNumOfCurrentCustomers() {
         return numOfCurrentCustomer;
-    }       
+    } 
+    public static boolean addCustomer (Customer customer) 
+    {
+        for (int x = 0; x < Customers.length; x++)
+        {
+            if (Customers[x] == null) 
+            {
+                Customers[x] = customer;
+                return true;
+            } 
+        }
+        return false;
+    }
+    public static Customer getCustomer (int custID) 
+    {
+        for (int x = 0; x < Customers.length; x++)
+        {
+            if (Customers[x].getCustomerId() == custID) 
+            {
+                return Customers[x];
+            } 
+        }
+        return null;
+    }
+    /**
+     * Method getMaxNumOfCustomers Mendapatkan jumlah maksimum customer
+     * @return Jumlah maksimum customer
+     */
+    public static int getMaxNumOfCustomers () {
+        return maxNumOfCustomers;
+    }
     /**
      * Method Mutator setCreditRate
      * @param rate bunga credit yang telah diatur oleh bank
