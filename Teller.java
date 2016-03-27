@@ -18,18 +18,18 @@ public class Teller
 */
 {   
     private Customer c1 = new Customer(); // task 2c number 1
-    private Account a1 = new Account(); //task 2c number 4
+    //private Account a1 = new Account(); //task 2c number 4
     private Account acct;
     private double saldo;
     private String namapanjang;
      /** 
      * @param args Arguments
      */
-    public static void main(String[] args)
+    /*public static void main(String[] args)
     {
         Bank.getHoursOfOperation();
-    }
-     /*public static void main(String[] args) 
+    }*/
+     public static void main(String[] args) 
     {
       int balance,year,month,day;
       char acctType;
@@ -38,7 +38,7 @@ public class Teller
       Scanner sc = new Scanner(System.in);
       Customer customers;
       
-      do {
+      /*do {
           System.out.println("New Costumer? (Y/N)");
           input = sc.next();
         if ( input.equals("Y")) 
@@ -85,14 +85,14 @@ public class Teller
                   while(true);
                   if (customers != null) 
                   {
-                  customers.setAccount(new Account(acctType,balance));
-                  customers.getAccount().setID(String.valueOf(customers.getCustomerId() ) + acctType);
+                 // customers.setAccount(new Account(acctType,balance));
+                 // customers.getAccount().setID(String.valueOf(customers.getCustomerId() ) + acctType);
                   }
               }
               System.out.println("Customer Information");
               System.out.println(customers);
             if (acctType != '\0')
-            System.out.print(customers.getAccount());
+           // System.out.print(customers.getAccount());
             } 
             else if (input.equals("N")) 
             {
@@ -102,15 +102,15 @@ public class Teller
             System.out.println("Use only Y or N \n");
         }
       } 
-      while(true);
-    } */
+      while(true);*/
+    } 
     public Teller()
     /**
     * Teller sebagai Method bertipe Constructor
     */
     {
-        /*
-       c1.setName("Sutandi","Sanadhi"); //task 2c number 2
+      /*  
+       c1.setName("Riansya","Sanadhi"); //task 2c number 2
         a1.setBalance(50000); //task 2c number 5
         c1.setAccount(a1); //task 2c number 6
         acct=c1.getAccount();

@@ -15,7 +15,6 @@ public class Customer
     public String cityName,email,firstName,lastName,streetAddress,phoneNumber,zipOrPostalCode;
     private Date dateOfBirth;
     private int custId,numberOfCurrentAccounts;
-    private Account accounts = new Account();
     private Matcher matcher;
     private Pattern pattern;
     private static final String emailPattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"+
@@ -61,10 +60,10 @@ public class Customer
     * Accessor method for getAccount
     * @return nama account dari data Customer yang telah di setting
     */
-    public Account getAccount() 
+    /*public Account getAccount() 
     {
         return accounts; // mengembalikan nilai ke var disamping
-    }
+    }*/
     /**
     * Accessor Method for getCustomerId
     * @return nomor ID dari data Customer yang telah di setting
@@ -144,10 +143,11 @@ public class Customer
     * Mutator Method untuk setAccount , Method yang melakukan serring data nama akun Customer
     * @param name nama akun customer
     */    
-    public void setAccount(Account accounts) 
+    /*public void setAccount(Account accounts) 
     {
         this.accounts = accounts; // melakukan setting nilai ke var yang tertulis dikolom ini
     }
+    */
     /**
     * Mutator Method for setEmail , Method untuk melakukan setting data email Customer
     * @param email untuk email Customer

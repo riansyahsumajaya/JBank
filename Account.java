@@ -1,36 +1,27 @@
+import java.math.BigDecimal;
+import java.lang.Math;
+import java.math.MathContext;
 /**
  * source code for course object-oriented programming
  * this code refer to  JBank phase 1 table(UML)
  * @author (Riansyah Sumajaya/1306447436) 
  * @version (27-02-2016)
  */
-public class Account
+public abstract class Account
 /**
  * Account Class : memanage isi akun customer
  */
 {
-    private char acctType;
-    private double balance;
-    private String id;
+    protected double balance;
+    protected String id;
     
     /**
     * Constructor Method for Account
     */
     public Account() 
     {
-        acctType='S';
-        balance=10.00;
     }
-    /**
-    * Constructor Method for Account
-    * @param type untuk tipe akun
-    * @param amount untuk jumlah saldo
-    */
-    public Account(char type, double amount) 
-    {
-        acctType=type;
-        balance=amount;
-    }
+
     /**
     * Mutator Method for deposit
     * @param amount untuk jumlah saldo
@@ -47,14 +38,7 @@ public class Account
             return true;
         }  
     }
-    /**
-    * Accessor Method for getAcctType
-    * @return tipe akun customer
-    */    
-    public char getAcctType() 
-    {
-        return acctType;
-    }
+
     /**
     * Accessor Method for getBalance
     * @return saldo akun customer
@@ -78,46 +62,26 @@ public class Account
     public void setBalance(double amount) 
     {
         balance = amount; //melakukan setting balance saldo customer
-    }
-    /**
-    * Mutator Method for setId
-    * @param acctId id akun customer
-    */      
-    public void setID(String acctId) 
-    {
-        id = acctId; // melakukan setting id customer
-    }
-    /**
-    * Mutator Method for setacctType 
-    * @param acctType tipe akun customer
-    */  
-    public void setacctType(char type) 
-    {
-        acctType = type; // melakukan setting tipe akun customer
     } 
     /**
     * Mutator Method for withdraw
     * @param amount jumlah saldo customer
     */      
-    public boolean withdraw(double amount) 
-    {
-       //Mutator agar customer dapat mengambil saldo miliknya
-        if (balance-amount < 0)
-        {
-            return false;
-        }
-        else
-        {
-            balance = balance - amount;
-            return true;
-        }  
-    }
+    public abstract boolean withdraw(double amount);
     public String toString()
     {
-        System.out.println("Id      :   " + id);
-        System.out.println("Tipe    :   " + acctType);
-        System.out.println("Saldo   :   " + balance);
-        return "";        
+        return "id";        
     }
-        
+    protected static double futureValue(double balance, double rate, double compound, double period) {
+        MathContext mc = new MathContext(3);
+        BigDecimal bal = new BigDecimal (balance);
+        BigDecimal r = new BigDecimal (rate);
+        BigDecimal n = new BigDecimal (compound);
+        BigDecimal t = new BigDecimal (period);
+        BigDecimal f1 = r.divide(n, mc.DECIMAL32).add(new BigDecimal(1));
+        BigDecimal f2 = n.multiply(t, mc.DECIMAL32);
+        BigDecimal f3 = new BigDecimal (Math.pow(f1.doubleValue(), f2.doubleValue()),mc.DECIMAL32);
+        BigDecimal f4 = f3.multiply(bal, mc.DECIMAL32);
+        return f4.doubleValue();
+    }    
 }
